@@ -4,9 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchMissions } from '../Redux/missions/missions';
 
 const Missions = () => {
-  // const missions = useSelector((state) => state.missionsReducer);
+  const missions = useSelector((state) => state.missionsReducer);
   const dispatch = useDispatch();
-  dispatch(fetchMissions());
+  // dispatch(fetchMissions());
+  if (missions.length === 0) {
+    dispatch(fetchMissions());
+  }
   return (
     <div>Choose your mission</div>
   );

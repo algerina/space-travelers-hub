@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// const ADD_MISSION = 'space-travelers-hub/books/ADD_MISSION';
+const ADD_MISSION = 'space-travelers-hub/books/ADD_MISSION';
 // const REMOVE_MISSION = 'space-travelers-hub/books/REMOVE_MISSION';
 const baseUrl = 'https://api.spacexdata.com/v3/missions';
 
@@ -19,25 +19,23 @@ export const fetchMissions = () => async (dispatch) => {
   await fetch(baseUrl)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-
-      // const fetchCollection = [];
-      // Object.entries(data).forEach((entry) => {
-      //   const key = entry[0];
-      //   const value = entry[1];
-      //   const book = { id: `${key}`, title: value[0].title, category: value[0].title };
-      //   fetchCollection.push(book);
-      // });
-      // fetchCollection.forEach((e) => {
-      //   dispatch({
-      //     type: ADD_BOOK,
-      //     payload: {
-      //       id: e.id,
-      //       title: e.title,
-      //       category: e.category,
-      //     },
-      //   });
-      // });
+      const missions = data.map((e) => {
+        const cont = {};
+        cont.mission_id = e.mission_id;
+        cont.mission_name = e.mission_name;
+        cont.description = e.description;
+        return cont;
+      });
+      missions.forEach((e) => {
+        dispatch({
+          type: ADD_MISSION,
+          payload: {
+            id: e.mission_id,
+            mission_name: e.mission_name,
+            description: e.description,
+          },
+        });
+      });
     });
 };
 
@@ -82,8 +80,8 @@ export const fetchMissions = () => async (dispatch) => {
 
 const missionsReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case ADD_BOOK:
-    //   return [...state, action.payload];
+    case ADD_MISSION:
+      return [...state, action.payload];
     // case REMOVE_BOOK:
     //   return state.filter((book) => book.id !== action.payload);
     default:
