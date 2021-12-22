@@ -3,7 +3,7 @@ import { Routes, Route, NavLink } from 'react-router-dom';
 import planet from './images/planet.png';
 import Myprofile from './components/Myprofile';
 import Rockets from './components/Rockets';
-import Missions from './components/Missions';
+import MissionsList from './components/MissionsList';
 import './App.css';
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
       <div className="row">
         <Routes>
           <Route exact path="/" element={<Rockets />} />
-          <Route path="missions" element={<Missions />} />
+          <Route path="missions" element={<MissionsList />} />
           <Route path="profile" element={<Myprofile />} />
         </Routes>
       </div>
