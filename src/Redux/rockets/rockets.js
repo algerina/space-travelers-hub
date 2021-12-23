@@ -24,7 +24,7 @@ export const fetchRockets = () => (dispatch) => {
         return info;
       });
 
-      rockets.forEach((e) => {
+      rockets.forEach((element) => {
         dispatch({
           type: BOOK_ROCKET,
           payload: {
@@ -39,27 +39,22 @@ export const fetchRockets = () => (dispatch) => {
     });
 };
 const rocketReducer = (state = initialState, action) => {
-  switch (action, type) {
-    case BOOK_ROCKET: {
-      const newState = state.map((rocket) => {
-        if (rocket.id !== action.payload) {
-          return rocket;
-        }
-        return { ...rocket, reserved: true };
-      });
-      return newState;
-    }
-    // case CANCEL_ROCKET: {
-    //   const newState = state.map((rocket) => {
-    //     if (rocket.id !== action.payload) {
-    //       return rocket;
-    //     }
-    //     return { ...rocket, reserved: false };
-    //   });
-    //   return newState;
-    // }
-    // default:
-    //   return state;
+  switch (action.type) {
+    case BOOK_ROCKET:
+      return [...state, action.payload];
+    default:
+      return state;
   }
 };
+// case CANCEL_ROCKET: {
+//   const newState = state.map((rocket) => {
+//     if (rocket.id !== action.payload) {
+//       return rocket;
+//     }
+//     return { ...rocket, reserved: false };
+//   });
+//   return newState;
+// }
+// default:
+//   return state;
 export default rocketReducer;
