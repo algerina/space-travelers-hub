@@ -1,0 +1,12 @@
+@media (min-width: 768px) {
+  .no-border-1 {
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-bottom: solid 1px #6c757d !important;
+  }
+
+  .no-md-margin-y {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
