@@ -1,12 +1,57 @@
+.bold-letter {
+  font-weight: 700;
+}
+
+.mission-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.mission-container:nth-of-type(odd) {
+  background-color: rgb(240, 240, 240);
+}
+
+.membership-status {
+  background-color: gray;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
+}
+
+.membership-status-active {
+  background-color:#18a2b8;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
+}
+
+.join-mission-button {
+  background-color: inherit;
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px black;
+  color: rgb(48, 48, 48);
+}
+
+.leave-mission-button {
+  background-color: inherit;
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px rgb(201, 0, 0);
+  color: rgb(201, 0, 0);
+}
+
 @media (min-width: 768px) {
   .no-border-1 {
-    border-top: 0 !important;
-    border-right: 0 !important;
-    border-bottom: solid 1px #6c757d !important;
+    border-top: 0!important;
+    border-right: 0!important;
+    border-bottom: solid 1px #6c757d!important;
   }
 
   .no-md-margin-y {
-    margin-top: 0 !important;
+    margin-top: 0!important;
     margin-bottom: 0 !important;
   }
 }

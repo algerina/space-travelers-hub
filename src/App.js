@@ -38,7 +38,7 @@ function App() {
           </div>
         </div>
       </nav>
-      <div className="row">
+      <div className="row justify-content-center">
         <Routes>
           <Route exact path="/" element={<Rockets />} />
           <Route path="missions" element={<MissionsList />} />
