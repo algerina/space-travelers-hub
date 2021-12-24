@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars, no-case-declarations */
 const ADD_MISSION = 'space-travelers-hub/redux/missions/ADD_MISSION';
 const JOIN_MISSION = 'space-travelers-hub/redux/missions/JOIN_MISSION';
 const LEAVE_MISSION = 'space-travelers-hub/redux/missions/LEAVE_MISSION';
@@ -24,6 +23,7 @@ export const fetchMissions = () => async (dispatch) => {
             id: e.mission_id,
             mission_name: e.mission_name,
             description: e.description,
+            reserved: false,
           },
         });
       });
@@ -46,20 +46,23 @@ export const leaveMission = (id) => ({
 
 const missionsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_MISSION:
+    case ADD_MISSION: {
       return [...state, action.payload];
-    case JOIN_MISSION:
+    }
+    case JOIN_MISSION: {
       const newState = state.map((mission) => {
         if (mission.id !== action.payload.id) return mission;
         return { ...mission, reserved: true };
       });
       return newState;
-    case LEAVE_MISSION:
-      const newState2 = state.map((mission) => {
+    }
+    case LEAVE_MISSION: {
+      const newState = state.map((mission) => {
         if (mission.id !== action.payload.id) return mission;
         return { ...mission, reserved: false };
       });
-      return newState2;
+      return newState;
+    }
     default:
       return state;
   }

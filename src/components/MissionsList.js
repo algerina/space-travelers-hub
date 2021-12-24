@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars, no-lone-blocks, max-len */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchMissions } from '../Redux/missions/missions';
@@ -20,7 +19,14 @@ const Missions = () => {
         <div className="col-2 border border-secondary" />
       </div>
       <div className="col-11 d-md-none text-center border border-secondary">Missions</div>
-      {missions.map((e) => (<Mission key={e.id} id={e.id} description={e.description} mission_name={e.mission_name} />))}
+      {missions.map((e) => (
+        <Mission
+          key={e.id}
+          id={e.id}
+          description={e.description}
+          mission_name={e.mission_name}
+        />
+      ))}
     </div>
   );
 };
