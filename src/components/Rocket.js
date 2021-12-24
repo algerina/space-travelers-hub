@@ -3,6 +3,7 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
+import './rocket.css';
 import { bookRocket, cancelReservation } from '../Redux/rockets/rockets';
 
 const Rocket = (props) => {
@@ -17,20 +18,20 @@ const Rocket = (props) => {
   } = props;
 
   return (
-    <div>
-      <div>
-        <img src={rocket_image} alt="rocket-one" />
-        <h2>{rocket_name}</h2>
-        <p>
+    <div className="rocketsWrapper">
+      <img src={rocket_image} className="rocketImg" alt="rocket-one" />
+      <div className="wrapper">
+        <h2 className="rocketName">{rocket_name}</h2>
+        <p className="description">
           {reserved && <span>Reserved</span>}
           {description}
         </p>
         {reserved ? (
           <button
             id={id}
+            className="cancelBtn"
             type="button"
             onClick={() => {
-              console.log(id);
               dispatch(cancelReservation(id));
             }}
           >
@@ -39,6 +40,7 @@ const Rocket = (props) => {
         ) : (
           <button
             id={id}
+            className="reserveBtn"
             type="button"
             onClick={() => {
               dispatch(bookRocket(id));
