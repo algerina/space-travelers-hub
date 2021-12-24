@@ -20,7 +20,7 @@
 }
 
 .membership-status-active {
-  background-color:#18a2b8;
+  background-color: #18a2b8;
   border-radius: 5px;
   padding-left: 5px;
   padding-right: 5px;
@@ -45,13 +45,13 @@
 
 @media (min-width: 768px) {
   .no-border-1 {
-    border-top: 0!important;
-    border-right: 0!important;
-    border-bottom: solid 1px #6c757d!important;
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-bottom: solid 1px #6c757d !important;
   }
 
   .no-md-margin-y {
-    margin-top: 0!important;
+    margin-top: 0 !important;
     margin-bottom: 0 !important;
   }
 }

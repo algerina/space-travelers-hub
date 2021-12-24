@@ -30,8 +30,15 @@ export const fetchMissions = () => async (dispatch) => {
     });
 };
 
-const joinMission = (id) => ({
+export const joinMission = (id) => ({
   type: JOIN_MISSION,
+  payload: {
+    id,
+  },
+});
+
+export const leaveMission = (id) => ({
+  type: LEAVE_MISSION,
   payload: {
     id,
   },
@@ -48,7 +55,11 @@ const missionsReducer = (state = initialState, action) => {
       });
       return newState;
     case LEAVE_MISSION:
-      return [...state, action.payload];
+      const newState2 = state.map((mission) => {
+        if (mission.id !== action.payload.id) return mission;
+        return { ...mission, reserved: false };
+      });
+      return newState2;
     default:
       return state;
   }
