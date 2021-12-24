@@ -9,12 +9,16 @@ const Myprofile = () => {
   const rocketStatus = useSelector((state) => state.rocketReducer).filter((e) => e.reserved);
   return (
     <>
-      <div className="col-12 col-md-6 row me-md-1">
-        <h3>My Missions</h3>
+      <div className="col-12 col-md-6">
+        <div className="col-12">
+          <h3>My Missions</h3>
+        </div>
         {missionStatus.map((e) => <MissionListElement key={e.id} mission_name={e.mission_name} />)}
       </div>
-      <div className="col-12 col-md-6 row ">
-        <h3>My Rockets</h3>
+      <div className="col-12 col-md-6 ">
+        <div className="col-12">
+          <h3>My Rockets</h3>
+        </div>
         {rocketStatus.map((e) => <RocketListElement key={e.id} rocket_name={e.rocket_name} />)}
       </div>
     </>
