@@ -1,3 +1,4 @@
+/* eslint-disable  prefer-destructuring */
 const BOOK_ROCKET = 'space-travelers-hub/redux/rockets/BOOK_ROCKET';
 const CANCEL_RESERVATION = 'space-travelers-hub/redux/rockets/CANCEL_RESERVATION';
 const ADD_ROCKET = 'space-travelers-hub/redux/rockets/ADD_ROCKET';
@@ -42,7 +43,7 @@ export const fetchRockets = () => async (dispatch) => {
         info.rocket_id = element.rocket_id;
         info.rocket_name = element.rocket_name;
         info.description = element.description;
-        info.rocket_image = element.flickr_images;
+        info.rocket_image = element.flickr_images[0];
         return info;
       });
 
@@ -53,7 +54,7 @@ export const fetchRockets = () => async (dispatch) => {
             id: element.rocket_id,
             rocket_name: element.rocket_name,
             description: element.description,
-            rocket_image: element.flickr_images,
+            rocket_image: element.rocket_image,
             reserved: false,
 
           },
@@ -68,7 +69,7 @@ const rocketReducer = (state = initialState, action) => {
     }
     case ADD_ROCKET: {
       const newState = state.map((rocket) => {
-        if (rocket.id !== action.pauload.id) return rocket;
+        if (rocket.id !== action.payload.id) return rocket;
         return { ...rocket, reserved: true };
       });
       return newState;
