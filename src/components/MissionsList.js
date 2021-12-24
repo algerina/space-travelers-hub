@@ -18,7 +18,7 @@ const Missions = () => {
         <div className="col-2 border border-end-0 border-secondary bold-letter">Status</div>
         <div className="col-2 border border-secondary" />
       </div>
-      <div className="col-11 d-md-none text-center border border-secondary">Missions</div>
+      <h4 className="col-11 d-md-none text-center">Missions</h4>
       {missions.map((e) => (
         <Mission
           key={e.id}

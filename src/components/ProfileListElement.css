@@ -1,0 +1,14 @@
+h5 {
+  border: solid 1px rgb(199, 199, 199);
+}
+
+h5:first-of-type {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+h5:last-of-type {
+  border-bottom: solid 1px rgb(199, 199, 199) !important;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
