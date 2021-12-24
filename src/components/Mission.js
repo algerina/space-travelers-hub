@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { joinMission, leaveMission } from '../Redux/missions/missions';
-import './mission.css';
+import './Mission.css';
 
 const Mission = (props) => {
   const {
