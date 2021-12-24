@@ -7,21 +7,15 @@ const API = 'https://api.spacexdata.com/v3/rockets';
 
 const initialState = [];
 
-// const AddRocket = async () => {
-//   const rocketData = await fetch(API);
-//   const data = await rocketData.json();
-//   return data;
-// };
-
 export const bookRocket = (id) => ({
-  type: BOOK_ROCKET,
+  type: ADD_ROCKET,
   payload: {
     id,
   },
 });
 
 export const addRocket = (id) => ({
-  type: ADD_ROCKET,
+  type: BOOK_ROCKET,
   payload: {
     id,
   },
@@ -85,15 +79,5 @@ const rocketReducer = (state = initialState, action) => {
       return state;
   }
 };
-// case CANCEL_ROCKET: {
-//   const newState = state.map((rocket) => {
-//     if (rocket.id !== action.payload) {
-//       return rocket;
-//     }
-//     return { ...rocket, reserved: false };
-//   });
-//   return newState;
-// }
-// default:
-//   return state;
+
 export default rocketReducer;

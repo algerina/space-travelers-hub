@@ -64,7 +64,6 @@ Mission.propTypes = {
   id: PropTypes.string.isRequired,
   mission_name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  reserved: PropTypes.bool.isRequired,
 };
 
 export default Mission;
