@@ -6,7 +6,7 @@ const ProfileListElement = (props) => {
   const { mission_name } = props;
 
   return (
-    <h5 className="border-bottom-0 m-0 py-4">{mission_name}</h5>
+    <h5 className="col-12 border-bottom-0 m-0 py-4">{mission_name}</h5>
   );
 };
 
