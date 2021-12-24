@@ -16,23 +16,8 @@ const Rocket = (props) => {
     reserved,
   } = props;
 
-  //   const rocketStatus = useSelector((state) => state.rocketReducer).filter((e) => e.id === id);
-
-  //   const bookingHandler = (rocket) => {
-  //     dispatch(bookRocket(rocket));
-  //   };
-
-  //   const cancelReservationgHandler = (rocket) => {
-  //     dispatch(cancelReservation(rocket));
-  //   };
-
   return (
     <div>
-      {/* {flicker_image.map((rocket) => (
-        <Item key={rocket}>
-          // <img src={rocket} alt="rocket-one" />
-        </Item>
-      ))} */}
       <div>
         <img src={rocket_image} alt="rocket-one" />
         <h2>{rocket_name}</h2>
@@ -45,6 +30,7 @@ const Rocket = (props) => {
             id={id}
             type="button"
             onClick={() => {
+              console.log(id);
               dispatch(cancelReservation(id));
             }}
           >
@@ -65,9 +51,6 @@ const Rocket = (props) => {
     </div>
   );
 };
-
-//   const rocketDisplay = useSelector((state) => state.rocketReducer).filter((e) => e.id === id);
-// };
 
 Rocket.propTypes = {
   id: PropTypes.string.isRequired,
