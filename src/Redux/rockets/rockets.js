@@ -1,5 +1,6 @@
-const BOOK_ROCKET = 'BOOK_ROCKET';
-// const CANCEL_ROCKET = 'CANCEL_ROCKET';
+const BOOK_ROCKET = 'space-travelers-hub/redux/rockets/BOOK_ROCKET';
+const CANCEL_RESERVATION = 'space-travelers-hub/redux/rockets/CANCEL_RESERVATION';
+const ADD_ROCKET = 'space-travelers-hub/redux/rockets/ADD_ROCKET';
 
 const API = 'https://api.spacexdata.com/v3/rockets';
 
@@ -11,8 +12,29 @@ const initialState = [];
 //   return data;
 // };
 
-export const fetchRockets = () => (dispatch) => {
-  fetch(API)
+export const bookRocket = (id) => ({
+  type: BOOK_ROCKET,
+  payload: {
+    id,
+  },
+});
+
+export const addRocket = (id) => ({
+  type: ADD_ROCKET,
+  payload: {
+    id,
+  },
+});
+
+export const cancelReservation = (id) => ({
+  type: CANCEL_RESERVATION,
+  payload: {
+    id,
+  },
+});
+
+export const fetchRockets = () => async (dispatch) => {
+  await fetch(API)
     .then((res) => res.json())
     .then((data) => {
       const rockets = data.map((element) => {
@@ -32,6 +54,7 @@ export const fetchRockets = () => (dispatch) => {
             rocket_name: element.rocket_name,
             description: element.description,
             rocket_image: element.flickr_images,
+            reserved: false,
 
           },
         });
@@ -40,8 +63,23 @@ export const fetchRockets = () => (dispatch) => {
 };
 const rocketReducer = (state = initialState, action) => {
   switch (action.type) {
-    case BOOK_ROCKET:
+    case BOOK_ROCKET: {
       return [...state, action.payload];
+    }
+    case ADD_ROCKET: {
+      const newState = state.map((rocket) => {
+        if (rocket.id !== action.pauload.id) return rocket;
+        return { ...rocket, reserved: true };
+      });
+      return newState;
+    }
+    case CANCEL_RESERVATION: {
+      const newState = state.map((rocket) => {
+        if (rocket.id !== action.playload.id) return rocket;
+        return { ...rocket, reserved: false };
+      });
+      return newState;
+    }
     default:
       return state;
   }

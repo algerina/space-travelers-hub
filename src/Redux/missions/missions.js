@@ -1,18 +1,12 @@
 /* eslint-disable no-unused-vars */
 // const REMOVE_MISSION = 'space-travelers-hub/books/REMOVE_MISSION';
+const ADD_MISSION = 'space-travelers-hub/redux/missions/ADD_MISSION';
+const JOIN_MISSION = 'space-travelers-hub/redux/missions/JOIN_MISSION';
+const LEAVE_MISSION = 'space-travelers-hub/redux/missions/LEAVE_MISSION';
+
 const baseUrl = 'https://api.spacexdata.com/v3/missions';
 
 const initialState = [];
-
-// export const addMission = (payload) => ({
-//   type: ADD_MISSION,
-//   payload,
-// });
-
-// export const removeMission = (payload) => ({
-//   type: REMOVE_MISSION,
-//   payload,
-// });
 
 export const fetchMissions = () => async (dispatch) => {
   await fetch(baseUrl)
@@ -32,57 +26,46 @@ export const fetchMissions = () => async (dispatch) => {
             id: e.mission_id,
             mission_name: e.mission_name,
             description: e.description,
+            reserved: false,
           },
         });
       });
     });
 };
 
-// export const postBook = ({ id, title, category }) => async (dispatch) => {
-//   await fetch(baseUrl, {
-//     method: 'POST',
-//     headers: {
-//       'Content-type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       item_id: id,
-//       title,
-//       category,
-//     }),
-//   })
-//     .then((res) => res.text())
-//     .then((data) => {
-//       if (data === 'Created') {
-//         dispatch({
-//           type: ADD_BOOK,
-//           payload: {
-//             id,
-//             title,
-//             category,
-//           },
-//         });
-//       }
-//     });
-// };
+export const joinMission = (id) => ({
+  type: JOIN_MISSION,
+  payload: {
+    id,
+  },
+});
 
-// export const deleteBook = (id) => async () => {
-//   await fetch(`${baseUrl}${id}`, {
-//     method: 'DELETE',
-//     headers: {
-//       'Content-type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       item_id: id,
-//     }),
-//   });
-// };
+export const leaveMission = (id) => ({
+  type: LEAVE_MISSION,
+  payload: {
+    id,
+  },
+});
 
 const missionsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_MISSION:
+    case ADD_MISSION: {
       return [...state, action.payload];
-    // case REMOVE_BOOK:
-    //   return state.filter((book) => book.id !== action.payload);
+    }
+    case JOIN_MISSION: {
+      const newState = state.map((mission) => {
+        if (mission.id !== action.payload.id) return mission;
+        return { ...mission, reserved: true };
+      });
+      return newState;
+    }
+    case LEAVE_MISSION: {
+      const newState = state.map((mission) => {
+        if (mission.id !== action.payload.id) return mission;
+        return { ...mission, reserved: false };
+      });
+      return newState;
+    }
     default:
       return state;
   }
