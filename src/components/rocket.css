@@ -37,7 +37,7 @@
   font-family: 'Roboto Slab', serif;
   font-size: 1rem;
   font-weight: bold;
-  color:  #0290ff;
+  color: #0290ff;
   cursor: pointer;
   margin-top: 6.5rem;
   margin-right: 13rem;
@@ -45,8 +45,8 @@
 }
 
 span {
-    color: white;
-    background-color: #138b83;
+  color: white;
+  background-color: #138b83;
 }
 
 .reserveBtn {
