@@ -1,5 +1,4 @@
-
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import store from './Redux/Store';
 import Rockets from './components/Rockets';
