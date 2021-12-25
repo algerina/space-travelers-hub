@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
-    "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
@@ -52,6 +51,7 @@
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-syntax-jsx": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
+    "@testing-library/jest-dom": "^5.16.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.25.3",
