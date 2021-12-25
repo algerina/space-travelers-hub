@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const ADD_MISSION = 'space-travelers-hub/redux/missions/ADD_MISSION';
 const JOIN_MISSION = 'space-travelers-hub/redux/missions/JOIN_MISSION';
 const LEAVE_MISSION = 'space-travelers-hub/redux/missions/LEAVE_MISSION';
