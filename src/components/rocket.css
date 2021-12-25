@@ -1,0 +1,62 @@
+.rocketsWrapper {
+  display: flex;
+}
+
+.wrapper {
+  display: flex;
+  margin: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  border: 1px solid #e9ecef;
+}
+
+.rocketImg {
+  border: 1px;
+  width: 50%;
+  height: auto;
+  margin: 1rem;
+}
+
+.description {
+  color: black;
+  margin: 1rem;
+}
+
+.reserved {
+  color: white;
+  background-color: #138b83;
+}
+
+.rocketName {
+  color: black;
+  margin: 1rem;
+}
+
+.cancelBtn {
+  margin: 1rem;
+  width: 11.5rem;
+  height: 2.813rem;
+  border-radius: 3px;
+  background-color: #0290ff;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-top: 6.5rem;
+  margin-right: 13rem;
+  border-color: #0290ff;
+}
+
+.reserveBtn {
+  margin: 1rem;
+  width: 11.5rem;
+  height: 2.813rem;
+  border-radius: 3px;
+  background-color: #0290ff;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-right: 13rem;
+  border-color: #0290ff;
+}
